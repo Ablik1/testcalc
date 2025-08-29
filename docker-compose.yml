@@ -4,7 +4,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8000:8000"
+      - "8023:8023"
     volumes:
       - ./backend/uploads:/app/uploads
     environment:
@@ -16,7 +16,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - VITE_API_BASE=http://localhost:8000
+      - VITE_API_BASE=http://localhost:8023
     depends_on:
       - backend
     restart: unless-stopped
