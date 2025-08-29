@@ -8,9 +8,6 @@
 docker compose up -d --build
 ```
 
-- Frontend: http://localhost:3000
-- Backend (Swagger): http://localhost:8023/docs
-
 ## Что реализовано
 - Загрузка Excel: `/api/upload/hyperv`, `/api/upload/exchange`, `/api/upload/s3`, `/api/upload/bin-mapping`
 - Получение отчетов: `/api/reports/hyperv`, `/api/reports/exchange`, `/api/reports/s3`, `/api/reports/summary`

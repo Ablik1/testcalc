@@ -1,11 +1,24 @@
 def get_hyperv_service_name(metric: str, iops: int | float | str | None) -> str:
+    """Return human readable service name for Hyper-V resources.
+
+    Previously any IOPS value other than 500 was treated as ``5000`` which
+    resulted in SSD pricing even for invalid or missing values.  This function
+    now explicitly checks for ``5000`` and defaults to the cheaper ``500`` SAS
+    option for everything else.
+    """
+
     metric = (metric or "").lower()
     if metric == "disk":
         try:
             iops_val = int(float(iops)) if iops is not None else 0
-        except ValueError:
+        except (ValueError, TypeError):
             iops_val = 0
-        return "Аренда Дискового пространства SAS, 1Гб (500 IOPS)" if iops_val == 500             else "Аренда Дискового пространства SSD, 1Гб (5000 IOPS)"
+
+        if iops_val == 5000:
+            return "Аренда Дискового пространства SSD, 1Гб (5000 IOPS)"
+
+        # Default to SAS disks (500 IOPS) for invalid or unspecified values
+        return "Аренда Дискового пространства SAS, 1Гб (500 IOPS)"
     if metric == "cpu":
         return "Аренда виртуального CPU"
     if metric == "memory":
