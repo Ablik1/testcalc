@@ -9,5 +9,5 @@ COPY public /app/public
 RUN npm install
 COPY src /app/src
 
-EXPOSE 3000
+EXPOSE 3010
 CMD ["npm", "run", "dev"]

@@ -8,7 +8,7 @@
 docker compose up -d --build
 ```
 
-- Frontend: http://localhost:3000
+- Frontend: http://localhost:3010
 - Backend (Swagger): http://localhost:8000/docs
 
 ## Что реализовано
