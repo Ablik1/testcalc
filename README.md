@@ -8,9 +8,6 @@
 docker compose up -d --build
 ```
 
-- Frontend: http://localhost:3010
-- Backend (Swagger): http://localhost:8000/docs
-
 ## Что реализовано
 - Загрузка Excel: `/api/upload/hyperv`, `/api/upload/exchange`, `/api/upload/s3`, `/api/upload/bin-mapping`
 - Получение отчетов: `/api/reports/hyperv`, `/api/reports/exchange`, `/api/reports/s3`, `/api/reports/summary`
@@ -71,13 +68,13 @@ docker compose up -d --build
 ## Пример запросов
 ```bash
 # Загрузка Hyper‑V
-curl -F "file=@hyper-v.xlsx" http://localhost:8000/api/upload/hyperv
+curl -F "file=@hyper-v.xlsx" http://localhost:8023/api/upload/hyperv
 
 # Отчет Hyper‑V
-curl http://localhost:8000/api/reports/hyperv
+curl http://localhost:8023/api/reports/hyperv
 
 # Экспорт
-curl -OJ http://localhost:8000/api/export/hyperv
+curl -OJ http://localhost:8023/api/export/hyperv
 ```
 
 ## Примечание

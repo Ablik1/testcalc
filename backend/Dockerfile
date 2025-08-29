@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 COPY src /app/src
 COPY uploads /app/uploads
 
-EXPOSE 8000
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+EXPOSE 8023
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8023"]
